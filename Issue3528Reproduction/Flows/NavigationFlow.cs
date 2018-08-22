@@ -29,8 +29,8 @@ namespace Issue3528Reproduction.Flows
             var viewModel = new SecondaryPageViewModel();
 
             viewModel.Title = $"View No. {(++_counter).ToString()}";
-            //viewModel.ShouldAdvance += PushPage;
-            //viewModel.ShouldPopToRoot += PopToRoot;
+            viewModel.ShouldAdvance += PushPage;
+            viewModel.ShouldPopToRoot += PopToRoot;
             page.BindingContext = viewModel;
 
             await _navigation.PushAsync(page);
