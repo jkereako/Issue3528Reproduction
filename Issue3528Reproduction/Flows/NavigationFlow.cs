@@ -19,11 +19,6 @@ namespace Issue3528Reproduction.Flows
             member.ShouldPopToRoot += PopToRoot;
         }
 
-        public void Start()
-        {
-
-        }
-
         public async void PushPage(object sender, EventArgs eventArgs)
         {
             Debug.Assert(
@@ -34,8 +29,8 @@ namespace Issue3528Reproduction.Flows
             var viewModel = new SecondaryPageViewModel();
 
             viewModel.Title = $"View No. {(++_counter).ToString()}";
-            viewModel.ShouldAdvance += PushPage;
-            viewModel.ShouldPopToRoot += PopToRoot;
+            //viewModel.ShouldAdvance += PushPage;
+            //viewModel.ShouldPopToRoot += PopToRoot;
             page.BindingContext = viewModel;
 
             await _navigation.PushAsync(page);
@@ -48,6 +43,8 @@ namespace Issue3528Reproduction.Flows
             );
 
             await _navigation.PopToRootAsync(true);
+
+            _counter = 0;
         }
     }
 }

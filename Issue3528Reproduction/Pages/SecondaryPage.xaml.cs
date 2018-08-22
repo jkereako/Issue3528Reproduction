@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-
 using Xamarin.Forms;
 
 namespace Issue3528Reproduction.Pages
@@ -10,6 +8,11 @@ namespace Issue3528Reproduction.Pages
         public SecondaryPage()
         {
             InitializeComponent();
+        }
+
+        ~SecondaryPage()
+        {
+            Console.WriteLine("SecondaryPage disposed.");
         }
     }
 }
