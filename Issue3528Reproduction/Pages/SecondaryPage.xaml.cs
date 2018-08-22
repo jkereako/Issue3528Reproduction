@@ -38,6 +38,8 @@ namespace Issue3528Reproduction.Pages
 
         private void CleanUp()
         {
+            // This code is necessary for Android only. For some reason, memory
+            // management on Android is not handled by Xamarin.
             BindingContext = null;
             GC.Collect();
         }
